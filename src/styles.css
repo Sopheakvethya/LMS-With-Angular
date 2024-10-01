@@ -1,1 +1,98 @@
-/* You can add global styles to this file, and also import other style files */
+/* Global Styling */
+body {
+  font-family: "Inter";
+  margin: 0;
+  padding: 0;
+  background-color: #f7f8fc;
+  color: #333;
+}
+
+h1,
+h2,
+h3 {
+  color: #333;
+  font-weight: 600;
+}
+
+p {
+  color: #555;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  background-color: #007bff;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-family: "Inter";
+  font-size: 16px;
+  margin: 10px 5px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.card {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 15px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card h3 {
+  margin-top: 0;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.back-button {
+  background-color: #6c757d;
+  padding: 8px 16px;
+  margin-bottom: 15px;
+}
+
+.back-button:hover {
+  background-color: #5a6268;
+}
+
+.quiz-container,
+.course-detail-container,
+.course-list-container {
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.quiz-container button {
+  margin-top: 20px;
+}
+
+input[type="radio"] {
+  margin-right: 8px;
+}
