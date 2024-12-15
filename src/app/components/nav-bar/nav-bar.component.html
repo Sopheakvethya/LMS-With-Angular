@@ -1,0 +1,157 @@
+<nav class="w-full flex justify-center border-b h-16">
+  <div
+    class="w-full max-w-7xl flex justify-between items-center p-3 px-5 text-sm"
+  >
+    <a routerLink="/"><app-logo /></a>
+    <div class="flex items-center gap-3">
+      @if (!isLoggedIn) { <a routerLink="/login" class="btn btn-ghost">Login</a
+      ><a routerLink="/register" class="btn btn-primary">Register</a>} @else {
+      <div class="dropdown dropdown-end">
+        <button tabindex="0" role="button" class="btn btn-ghost btn-circle">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-plus"
+          >
+            <path d="M5 12h14" />
+            <path d="M12 5v14" />
+          </svg>
+        </button>
+        <ul
+          tabindex="0"
+          class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow"
+        >
+          <li onclick="join_modal.showModal()">
+            <a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-log-in"
+              >
+                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                <polyline points="10 17 15 12 10 7" />
+                <line x1="15" x2="3" y1="12" y2="12" />
+              </svg>
+              <p>Join course</p>
+            </a>
+          </li>
+          <dialog id="join_modal" class="modal">
+            <div class="modal-box flex flex-col w-72">
+              <h3 class="text-2xl font-bold">Enter Code</h3>
+              <p class="py-2 text-gray-600">Please enter the course code.</p>
+              <input
+                type="text"
+                [(ngModel)]="courseCode"
+                placeholder="Enter code..."
+                class="input input-bordered mt-4 w-full max-w-xs"
+              />
+              <button
+                class="btn btn-primary mt-4 w-full"
+                type="button"
+                (click)="joinCourse()"
+              >
+                Join
+              </button>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button class="cursor-default">close</button>
+            </form>
+          </dialog>
+          <li onclick="create_modal.showModal()">
+            <a>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="lucide lucide-circle-plus"
+              >
+                <circle cx="12" cy="12" r="10" />
+                <path d="M8 12h8" />
+                <path d="M12 8v8" />
+              </svg>
+              <p>Create course</p>
+            </a>
+          </li>
+          <dialog id="create_modal" class="modal">
+            <div class="modal-box flex flex-col w-96">
+              <h3 class="text-2xl font-bold">New Course</h3>
+              <p class="mb-2 text-gray-600">
+                Fill in the information about your new course.
+              </p>
+              <p class="text-base mb-1 mt-4 font-semibold">Title</p>
+              <input
+                type="text"
+                placeholder="Enter title..."
+                [(ngModel)]="courseTitle"
+                required
+                class="textarea textarea-bordered w-full max-w-xs"
+              />
+              <p class="text-base mb-1 mt-4 font-semibold">Description</p>
+              <textarea
+                type="text"
+                required
+                placeholder="Enter description..."
+                [(ngModel)]="courseDescription"
+                class="input input-bordered w-full max-w-xs"
+              ></textarea>
+              <button
+                class="btn btn-primary mt-4 w-full"
+                type="button"
+                (click)="createCourse()"
+              >
+                Create
+              </button>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+              <button class="cursor-default">close</button>
+            </form>
+          </dialog>
+        </ul>
+      </div>
+      <button onclick="logout_modal.showModal()" class="btn btn-ghost">
+        Logout
+      </button>
+      <dialog id="logout_modal" class="modal">
+        <div class="modal-box flex flex-col gap-2 w-72">
+          <h3 class="text-2xl font-bold">Are you sure?</h3>
+          <p class="mb-6 text-gray-600">
+            Are you sure you want to logout of your account?
+          </p>
+          <div>
+            <button
+              class="btn btn-primary w-full"
+              type="button"
+              (click)="logout()"
+            >
+              Logout
+            </button>
+          </div>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+          <button class="cursor-default">close</button>
+        </form>
+      </dialog>
+      }
+    </div>
+  </div>
+</nav>

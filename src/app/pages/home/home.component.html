@@ -1,0 +1,23 @@
+@if (isLoading) {
+<div class="flex flex-col gap-5">
+  <h2 class="text-3xl font-bold">Courses</h2>
+  <div class="grid grid-cols-4 gap-3">
+    <div class="skeleton h-24 w-60"></div>
+    <div class="skeleton h-24 w-60"></div>
+  </div>
+</div>
+} @else {
+<div class="flex flex-col gap-5">
+  <h2 class="text-3xl font-bold">Courses</h2>
+  <div class="grid grid-cols-4 gap-3">
+    <div
+      *ngFor="let course of courses"
+      class="flex flex-col gap-3 card bg-base-100 shadow-lg border p-5 hover:shadow-xl hover:duration-500 cursor-pointer"
+      (click)="viewCourse(course._id)"
+    >
+      <h3 class="text-lg font-semibold">{{ course.title }}</h3>
+      <p class="text-sm text-gray-600">{{ course.description }}</p>
+    </div>
+  </div>
+</div>
+}
